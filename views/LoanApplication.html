@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <select id="loan_id">
+            <option value="hl">HL</option>
+            <option value = "el">EL</option>
+            <option value = "pl">PL</option>
+            <option value="gl">GL</option>
+            <option value="al">AL</option>
+            <option value="vl">VL</option>
+        </select><br><br>
+        Phone Number : <input type="number" id = "number" /><br><br>
+        Amount : <input type="text" id = "amount"  /><br><br>
+        Gram : <input type="text" id = "gram " /> <br><br>
+        Acre : <input type = "text" id = "acre" /><br><br>
+        <input type="text" id="text" />
+    </form>
+    <script>
+        var select = document.getElementById("loan_id");
+        var amount = document.getElementById("amount");
+        var gram = document.getElementById("gram");
+        var acre = document.getElementById("acre");
+        select.onchange = function (e) {
+            amount.disabled = (select.value !== "hl" || select.value !== "el" || select.value !== "pl" || select.value !== "vl");
+            acre.disabled = (select.value !== "al");
+            gram.disabled = (select.value !== "gl");
+            
+        };
+    </script>
+</body>
+
+</html>

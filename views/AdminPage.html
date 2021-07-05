@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin Page</title>
+    <style>
+#mySidenav a {
+  position: absolute;
+  left: -80px;
+  transition: 0.3s;
+  padding: 20px;
+  width: 100px;
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+  border-radius: 0 5px 5px 0;
+}
+
+#mySidenav a:hover {
+  left: 0;
+}
+
+#getuserlist {
+  top: 40px;
+  background-color: #04AA6D;
+}
+
+#getloanpplicationlist {
+  top: 100px;
+  background-color: #2196F3;
+}
+
+#getfinalapplicationlist {
+  top: 200px;
+  background-color: #e7f436;
+}
+
+#managereport {
+  top: 300px;
+  background-color: #555
+}
+
+#logout {
+  top: 360px;
+  background-color: rgb(236, 24, 24)
+}
+
+body  {
+  
+  background-color: #cccccc;
+}
+
+</style>
+</head>
+<body>
+
+<div id="mySidenav" class="sidenav">
+  <a href="GetUserList.html" id="getuserlist">Get User List</a>
+  <a href="#" id="getloanpplicationlist">Level 1 Application List</a>
+  <a href="#" id="getfinalapplicationlist">Final Application Details</a>
+  <a href="#" id="managereport">Report</a>
+  <a href="#" id="logout">Logout</a>
+</div>
+
+<div style="margin-left:80px;">
+  <center><h2><b><i>ABC Financial Consultant</i></b></h2>
+  <p>Admin Page</p></center>
+</div>
+   
+</body>
+</html> 

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SignUp Page</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href = "../assets/register.css">    
+</head>
+
+<body>
+
+    <h2>Signup Form</h2>
+
+    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</button>
+
+    <div id="id01" class="modal">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <form class="modal-content" onsubmit="newUser()">
+            <div class="container">
+                <h1>Sign Up</h1>
+                <p>Please fill in this form to create an account.</p>
+                <label for="name">
+                        <b>Name</b>
+                    </label>
+                    <input type="text" placeholder="Enter Your Name" name="name" id = "name" required/>
+
+                <label for="email">
+                    <b>Email</b>
+                </label>
+                <input type="email" placeholder="Enter Email" name="email" id = "email" required/>
+
+                <label for="password">
+                    <b>Password</b>
+                </label>
+                <input type="password" placeholder="Enter Password" name="password" id = "password" required/>
+
+                <label for="phoneno">
+                    <b>Phone Number</b>
+                </label>
+                <input type="text" placeholder="Enter Phone Number" name="phoneno" id = "phoneno" required>
+
+                <label for="gender">
+                    <b>Gender</b>
+                </label>
+                <input type="radio" id = "gender" name="Gender" value="Male" />
+                    Male
+                    <input type="radio" id = "gender" name="Gender" value="Female" />
+                    Female
+                    <input type="radio" id = "gender" name="Gender" value="others" />
+                    Others
+                <br><br>
+                <label for="dob">
+                    <b>Date of Birth</b>
+                </label>
+                <input type="date" placeholder="Enter Date of Birth" name="dob" id = "dob" required/>
+                <br><br>
+                <label for="address">
+                    <b>Address</b>
+                </label>
+                <input type="text" placeholder="Enter Address" name="address" id = "address" required/>
+                <br><br>
+                <label for="city">
+                    <b>City</b>
+                </label>
+                <input type="text" placeholder="Enter City" name="city" id = "city" required/>
+                <br><br>
+                <label for="pincode">
+                    <b>Pincode</b>
+                </label>
+                <input type="text" placeholder="Enter Pincode" name="pincode" id = "pincode" required/>
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn" id = "signUpButton">Sign Up</button>
+                </div>
+            </div>
+            <label id="errorMessage" style="color:red; font-size:110%;"></label>
+        </form>
+    </div>
+</body>
+
+    <script src = "../service/UserManager.js"></script>
+    <script src = "../service/Registration.js"></script>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User List</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <section id="content"><center>
+          <form action=""><br/>
+            <h1>Users List</h1><br/>
+              <table id="users" border="1">
+                <thead>
+                  <tr>
+                    <th>S.No</th>
+                    <th>Name</th>
+                    <th>Email Id</th>
+                    <th>Phone Number</th>
+                    <th>Gender</th>
+                    <th>Date of Birth</th>
+                    <th>Address</th>
+                    <th>Pincode</td>
+                  </tr>
+                </thead>
+                <tbody id="user-content"></tbody>
+              </table><br><br>
+              <input type="button" value="Back" onclick=window.location.href="../views/AdminPage.html">
+          </form><br/>
+        </section>
+      </div>
+
+<script src = "../service/UserManager.js"></script>
+<script src = "../service/DynamicElements.js"></script>
+<script src = "../service/AllUser.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Loan Details</title>
+    <style>
+        th,
+        td {
+            padding: 5px;
+        }
+    </style>
+
+    <body>
+
+        <h2><b><i>Enter your Phone Number To get the Details</i></b>></h2>
+
+        <form action="">
+            Enter Your Phone Number : <input type = "text" name = "phoneno" id = "phoneno" required autofocus/>
+            <br><br>
+            <button type = "submit" onclick="showCustomer(this.value)">SUBMIT</button>
+            <br><br>
+        </form>
+        <br>
+        <div id="txtHint">Customer info will be listed here...</div>
+
+        <script>
+            function showCustomer(phoneno) {
+                if (phoneno == "") {
+                    document.getElementById("txtHint").innerHTML = "";
+                    return;
+                }
+                const xhttp = new XMLHttpRequest();
+                xhttp.onload = function () {
+                    document.getElementById("txtHint").innerHTML = this.responseText;
+                }
+                xhttp.open("GET", "/api/application/:phoneno" + phoneno);
+                xhttp.send();
+            }
+        </script>
+    </body>
+
+</html>

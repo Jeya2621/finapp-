@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 100%;
+  left: 0;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content .header {
+  background: rgb(0, 183, 255);
+  padding: 16px;
+  color: white;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  background-color: #ccc;
+  height: 250px;
+}
+
+.column a {
+  float: none;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.column a:hover {
+  background-color: #ddd;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.flex-parent {
+  display: flex;
+}
+
+.jc-center {
+  justify-content: center;
+}
+
+button.margin-right {
+  margin-right: 20px;
+}
+</style>
+</head>
+<body>
+<center>
+<div class="navbar">
+  <a href="#home">Profile</a>
+  <a href="ApplyLoan.html">Apply Loan</a>
+  <div class="dropdown">
+    <button class="dropbtn">Loan Details 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <div class="header">
+        <h2>Details</h2>
+      </div>   
+      <div class="row">
+        <div class="column">
+          <h3>View Loan Details</h3>
+          <a href="LoanTypesandAmount.html">Loan Types & Amount</a>
+          <a href="#">Loan EMI Details</a>
+        </div>
+        <div class="column">
+          <h3>Status</h3>
+          <a href="#">Level One Application Status</a>
+          <a href="#">Final Application Status</a>
+        </div>
+      </div>
+    </div>
+  </div> 
+</div>
+<h2><b><i>Welcome To ABC Financial Consultant</i></b></h2>
+<div style="padding:16px">
+  User Name : <input type = "text" name = "name" id = "name" readonly/>
+  <br><br>
+  Email Id : <input type = "email" name = "email" id = "email" readonly/>
+  <br><br>
+  Phone Number : <input type = "number" name = "phoneno" id = "phoneno" readonly/>
+  <br><br>
+  Gender : <input type = "text" name = "gender" id = "gender" readonly/>
+  <br><br>
+  Date of Birth : <input type = "date" name = "dob" id = "dob" readonly/>
+  <br><br>
+  Address : <input type = "text" name = "address" id = "address" readonly/>
+  <br><br>
+  City : <input type = "text" name = "city" id = "city" readonly/>
+  <br><br>
+  Pincode : <input type = "number" name = "pincode" id = "pincode" readonly/>
+  <br><br>
+</div>
+</center>
+
+<div class="flex-parent jc-center">
+    <button type="submit" class="green margin-right">Update Details</button>
+    <button type="submit" class="magenta">Logout</button>
+</div>
+
+</body>
+</html>

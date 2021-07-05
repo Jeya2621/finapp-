@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login page</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="../assets/login.css">
+</head>
+
+<body>
+    <br />
+    <br />
+
+    <div class="login-card">
+        <div class="log_head">
+            <h1>SIGN IN</h1>
+            <img src="data:image/png;base64,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"
+                alt="lock" class="lock" />
+        </div>
+
+        <div class="log_body">
+            <form>
+                <table width="200" border="0" align="center">
+                    <tr>
+                        <div class="myDIV">
+                            Enter Phone Number :
+                            <input type="number" name="phoneno" id="phoneno" placeholder="Enter Your Phone Number" autofocus required/>
+                        </div>
+                        <div class="hide">Enter Registered Phone Number Only</div>
+                    </tr>
+                    <br>
+                    <br>
+
+                    <tr>
+                        <div class="myDIV">
+                            Enter password :
+                            <input type="password" name="password" id="password" placeholder="Enter Your Password" required/>
+                        </div>
+                        <div class="hide">Password must contain atleast 8 to 20 characters, at least one lowercase letter, one uppercase letter,
+                            one numeric digit, and one special character</div>
+                    </tr>
+                    <br>
+                    <br>
+
+                    <tr>
+                        <td>
+                            <input type="submit" id="submit" class="login-submit" value="SIGN IN">
+                        </td>
+                    </tr>
+                    <label id="errorMessage" style="color:red; font-size:110%;"></label>
+                    <tr>
+                    </tr>
+                    <tr></tr>
+                    <tr>
+                        <td>Forgot Your Password ?
+                            <a href="ChangePassword.html" rel="register">Forgot Password?</a>
+                        </td>
+                    </tr><tr></tr>
+                    <tr>
+                        <td>Don't have an account ?
+                            <a href="Register.html" rel="register">Sign Up</a>
+                        </td>
+                    </tr>
+                </table>
+
+            </form>
+        </div>
+    </div>
+
+    <script src = "../service/UserManager.js"></script>
+    <script src = "../service/Login.js"></script>
+
+</body>
+
+</html>

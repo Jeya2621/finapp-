@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EMI Calculation</title>
+
+    <style>
+
+body { 
+    background:  url(https://media1.tenor.com/images/ff2458059999df20d3d69aaa39875224/tenor.gif?itemid=15999195) no-repeat center center fixed; 
+    background-size: cover;
+  } 
+            .accordion {
+              background-color: #eee;
+              color: #444;
+              cursor: pointer;
+              padding: 18px;
+              width: 100%;
+              border: none;
+              text-align: left;
+              outline: none;
+              font-size: 15px;
+              transition: 0.4s;
+            }
+            
+            .active, .accordion:hover {
+              background-color: #ccc;
+            }
+            
+            .panel {
+              padding: 0 18px;
+              background-color: white;
+              max-height: 0;
+              overflow: hidden;
+              transition: max-height 0.2s ease-out;
+            }
+            </style>
+
+</head>
+<body>
+    
+        <center><h2>EMI Calculation</h2>
+        <p>Click on the buttons to Calculate EMI.</p></center>
+        
+        <button class="accordion">House Loan</button>
+        <div class="panel">
+         <center> <form>
+                <b>!!...Select the Amount You Need...!!</b>
+                <br><br>
+                <b><i>Interest for House loan :</i></b>
+                <li>10 Lakhs ---> 2%</li><li>25 Lakhs ---> 3%</li><li>50 Lakhs ---> 5%</li><br><br>
+                <select name="Amount" id="Amount">
+                        <option disabled selected>select Amount</option>            
+                        <option value="1000000">10 Lakhs</option>
+                        <option value="2500000">25 Lakhs</option>
+                        <option value="5000000">50 Lakhs</option>
+                </select> 
+                <br><br>
+                <b>Months to pay : </b>
+                <select name="months" id="months">
+                    <option disabled selected>select the Month</option>            
+                    <option value="12">12 Months</option>
+                    <option value="24">24 Months</option>
+                    <option value="36">36 Months</option>  
+                    <option value="48">48 Months</option>
+                    <option value="60">60 Months</option>
+                    <option value="72">72 Months</option>
+                </select> 
+                <br><br>
+                <input type="submit" value="SUMBIT" onclick = "houseLoanCalculation()">
+                <br><br>
+                <b>Your EMI per Month is : <span id = "housetotal"></span></b>
+                <br><br><br>    
+          </form></center>
+        </div>
+        
+        <button class="accordion">Educational Loan</button>
+        <div class="panel">
+                <center><b>!!!.....Educational Loan.....!!!</b>
+                    <br><br>
+                    <b><i>Interest for Educational Loan is 2%</i></b></center>
+                    <br><br>
+                    <form >
+                        <center><b>Enter Amount for Educational Loan (Max = 5 Lakhs) : </b>
+                        <input type = "number" name = "eduamount" id = "eduamount" placeholder="Enter the Amount" required/>
+                        <br><br>
+                        <b>Interest Rate :</b><br><br>
+                        <input type = "number" name = "intrate" id = "eduintrate" value = "2" readonly/>
+                        <br><br>
+                        <b>Months to pay : </b>
+                        <select name="months" id="edumonths">
+                            <option disabled selected>select the Month</option>            
+                            <option value="12">12 Months</option>
+                            <option value="24">24 Months</option>
+                            <option value="36">36 Months</option>  
+                            <option value="48">48 Months</option>
+                            <option value="60">60 Months</option>
+                            <option value="72">72 Months</option>
+                        </select> 
+                        <br><br>
+                        <input type="submit" value="SUMBIT" onclick = "educationalLoanCalculation()">
+                        <br><br>
+                        <b>Your EMI per Month is : <span id = "edutotal"></span></b>
+                    </center>
+                    </form>
+                
+        </div>
+        
+        <button class="accordion">Personal Loan</button>
+        <div class="panel">
+                <center><h2><b>!!!.....Personal Loan.....!!!</b></h2>
+                    <br><br>
+                    <b><i>Interest for Personal Loan is 3%</i></b></center>
+                    <br><br>
+                    <form >
+                        <center><b>Enter Amount for Personal Loan (Max = 10 Lakhs) : </b>
+                        <input type = "number" name = "peramount" id = "peramount" placeholder="Enter the Amount" required/>
+                        <br><br>
+                        <b>Interest Rate :</b><br><br>
+                        <input type = "number" name = "intrate" id = "perintrate" value = "3" readonly/>
+                        <br><br>
+                        <b>Months to pay : </b>
+                        <select name="months" id="permonths">
+                            <option disabled selected>select the Month</option>            
+                            <option value="12">12 Months</option>
+                            <option value="24">24 Months</option>
+                            <option value="36">36 Months</option>  
+                            <option value="48">48 Months</option>
+                            <option value="60">60 Months</option>
+                            <option value="72">72 Months</option>
+                        </select> 
+                        <br><br>
+                        <input type="submit" value="SUMBIT" onclick = "personalLoanCalculation()">
+                        <br><br>
+                        <b>Your EMI per Month is : <span id = "pertotal"></span></b>
+                    </form></center>
+        </div>
+
+        <button class="accordion">Gold Loan</button>
+        <div class="panel">
+                <center><h2><b>!!!.....Gold Loan.....!!!</b></h2>
+                    <br><br>
+                    <b><i>Interest for Gold Loan is 1.5%</i></b></center>
+                    <br><br>
+                    <form >
+                        <center><b>Enter Available Gram (Rs.3500/- per Gram & Loan for Upto 99 Grams Only) : </b>
+                        <input type = "number" name = "gram" id = "gram" placeholder="Enter the Gram" required/>
+                        <br><br>
+                        <b>Interest Rate :</b><br><br>
+                        <input type = "number" name = "intrate" id = "goldintrate" value = "1.5" readonly/>
+                        <br><br>
+                        <b>Months to pay : </b>
+                        <select name="months" id="goldmonths">
+                            <option disabled selected>select the Month</option>            
+                            <option value="12">12 Months</option>
+                            <option value="24">24 Months</option>
+                            <option value="36">36 Months</option>  
+                            <option value="48">48 Months</option>
+                            <option value="60">60 Months</option>
+                            <option value="72">72 Months</option>
+                        </select> 
+                        <br><br>
+                        <input type="submit" value="SUMBIT" onclick = "goldLoanCalculation()">
+                        <br><br>
+                        <b>Your are Eligible for the Loan Amount : <span id = "goldtotalamount"></span></b>
+                        <br><br>
+                        <b>Your Intrest per Month is : <span id = "goldtotal"></span></b>
+                        </form></center>
+        </div>
+
+        <button class="accordion">Agri Loan</button>
+        <div class="panel">
+                <center><h2><b>!!!.....Agricultural Loan.....!!!</b></h2>
+                    <br><br>
+                    <b><i>Interest for Agricultural Loan is 1%</i></b></center>
+                    <br><br>
+                    <form >
+                        <center><b>Enter Available acre (Rs.7000/- per acre & Loan for Upto 99 Acre Only) : </b>
+                        <input type = "number" name = "acre" id = "acre" placeholder="Enter the acre" required/>
+                        <br><br>
+                        <b>Interest Rate :</b><br><br>
+                        <input type = "number" name = "intrate" id = "agriintrate" value = "1" readonly/>
+                        <br><br>
+                        <b>Months to pay : </b>
+                        <select name="months" id="agrimonths">
+                            <option disabled selected>select the Month</option>            
+                            <option value="12">12 Months</option>
+                            <option value="24">24 Months</option>
+                            <option value="36">36 Months</option>  
+                            <option value="48">48 Months</option>
+                            <option value="60">60 Months</option>
+                            <option value="72">72 Months</option>
+                        </select> 
+                        <br><br>
+                        <input type="submit" value="SUMBIT" onclick = "agriLoanCalculation()">
+                        <br><br>
+                        <b>Your are Eligible for the Loan Amount : <span id = "acretotal"></span></b>
+                        <br><br>
+                        <b>Your EMI per Month is : <span id = "agritotal"></span></b>
+                    </form></center>
+        </div>
+
+
+        <button class="accordion">Vehicle Loan</button>
+        <div class="panel">
+                <form>
+                        <center>
+                        <br><br><br>
+                        <h2><b>!!!.....Vehicle Loan.....!!!</b></h2>
+                        <br><br>
+                        <b><i>Interest for Vehicle Loan is 3%</i></b>
+                        <br><br>
+                        <b>!!...Select the Vehicle Type...!!</b>
+                        <br><br>
+                        <select name="vehicle" id="vehicle">
+                                <option disabled selected>Select Type</option>            
+                                <option value="twowheeler">Two Wheeler - 2 Lakhs</option>
+                                <option value="fourwheeler">Four Wheeler - 5 Lakhs</option>
+                                <option value="others">others - 7 Lakhs</option>
+                        </select> 
+                        <br><br>
+                        <b>Interest Rate :</b><br><br>
+                        <input type = "number" name = "intrate" id = "vehicleintrate" value = "3" readonly/>
+                        <br><br>
+                        <b>Months to pay : </b>
+                        <select name="months" id="vehiclemonths">
+                            <option disabled selected>select the Month</option>            
+                            <option value="12">12 Months</option>
+                            <option value="24">24 Months</option>
+                            <option value="36">36 Months</option>  
+                            <option value="48">48 Months</option>
+                            <option value="60">60 Months</option>
+                            <option value="72">72 Months</option>
+                        </select> 
+                        <br><br>
+                        <input type="submit" value="SUMBIT" onclick = "vehicleLoanCalculation()">
+                        <br><br>
+                        <b>Your Intrest per Month is : <span id = "vehicletotal"></span></b>
+                    </center>
+                    </form>
+        </div>
+
+        <script>
+                var acc = document.getElementsByClassName("accordion");
+                var i;
+                
+                for (i = 0; i < acc.length; i++) {
+                  acc[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    if (panel.style.maxHeight) {
+                      panel.style.maxHeight = null;
+                    } else {
+                      panel.style.maxHeight = panel.scrollHeight + "px";
+                    } 
+                  });
+                }
+
+            function houseLoanCalculation(){
+            event.preventDefault();
+            let amount = document.querySelector("#Amount").value;
+            let Months = document.querySelector("#months").value;
+            console.log(amount);
+            localStorage.setItem("Amount", amount);
+            if(amount == "1000000"){
+               let Intrate = "2";
+               var Interest = (amount * (Intrate * 0.01)) / Months;
+               var Total = ((amount / Months) + Interest).toFixed(2);
+               document.getElementById("housetotal").innerHTML = Total;
+                }
+            else if(amount == "2500000"){
+               let Intrate = "3";
+               var Interest = (amount * (Intrate * 0.01)) / Months;
+               var Total = ((amount / Months) + Interest).toFixed(2);
+               document.getElementById("housetotal").innerHTML = Total;
+            }
+            else if(amount == "5000000"){
+               let Intrate = "5";
+               var Interest = (amount * (Intrate * 0.01)) / Months;
+               var Total = ((amount / Months) + Interest).toFixed(2);
+               document.getElementById("housetotal").innerHTML = Total;
+            }
+            else{
+                alert("Please Select the Amount");
+            }
+        }
+
+        function educationalLoanCalculation(){
+        event.preventDefault();
+        let Eduamount = document.querySelector("#eduamount").value;
+        let Intrate = document.querySelector("#eduintrate").value;
+        let Months = document.querySelector("#edumonths").value;
+        console.log(Eduamount);
+        if(Eduamount > 0 && Eduamount <= 500000){
+            var Interest = (Eduamount * (Intrate * 0.01)) / Months;
+            var Total = ((Eduamount / Months) + Interest).toFixed(2);
+            document.getElementById("edutotal").innerHTML = Total;
+        }
+        else{
+            alert("Enter Valid Amount");
+        }
+    }
+
+
+    function personalLoanCalculation(){
+            event.preventDefault();
+            let Peramount = document.querySelector("#peramount").value;
+            let Intrate = document.querySelector("#perintrate").value;
+            let Months = document.querySelector("#permonths").value;
+            console.log(Peramount);
+            if(Peramount > 0 && Peramount <= 1000000){
+               var Interest = (Peramount * (Intrate * 0.01)) / Months;
+               var Total = ((Peramount / Months) + Interest).toFixed(2);
+               document.getElementById("pertotal").innerHTML = Total;
+            }
+            else{
+            alert("Enter Valid Amount");
+            }
+        }
+
+
+        function goldLoanCalculation(){
+            event.preventDefault();
+            let Gram = document.querySelector("#gram").value;
+            let Intrate = document.querySelector("#goldintrate").value;
+            let Months = document.querySelector("#goldmonths").value;
+            //let Peramount = document.querySelector("#gramtotal").value;
+            console.log(Gram);
+            if(Gram > 0 && Gram < 100 ){
+                let TotalAmount = Gram * 3500;
+                console.log(TotalAmount);
+                document.getElementById("goldtotalamount").innerHTML = TotalAmount;
+                var Interest = (TotalAmount * (Intrate * 0.01)) / Months;
+                var Total = ((TotalAmount / Months) + Interest).toFixed(2);
+                document.getElementById("goldtotal").innerHTML = Total; 
+            }
+            else{
+            alert("Enter Valid Gram");
+             }
+        }
+
+        function agriLoanCalculation(){
+            event.preventDefault();
+            let Acre = document.querySelector("#acre").value;
+            let Intrate = document.querySelector("#agriintrate").value;
+            let Months = document.querySelector("#agrimonths").value;
+            console.log(Acre);
+            if(Acre > 0 && Acre < 100){
+                let AcreTotal = Acre * 7000;
+                console.log(AcreTotal);
+                document.getElementById("acretotal").innerHTML = AcreTotal;
+                var Interest = (AcreTotal * (Intrate * 0.01)) / Months;
+                var Total = ((AcreTotal / Months) + Interest).toFixed(2);
+                document.getElementById("agritotal").innerHTML = Total; 
+            }
+            else{
+            alert("Enter Valid Acre");
+            }
+        }
+
+        function vehicleLoanCalculation(){
+            event.preventDefault();
+            let Vehicle = document.querySelector("#vehicle").value;
+            let Intrate = document.querySelector("#vehicleintrate").value;
+            let Months = document.querySelector("#vehiclemonths").value;
+            console.log(Vehicle);
+            if(Vehicle == "twowheeler"){
+                var Peramount = 200000;
+                var Interest = (Peramount * (Intrate * 0.01)) / Months;
+                var Total = ((Peramount / Months) + Interest).toFixed(2);
+                document.getElementById("vehicletotal").innerHTML = Total;
+                }
+            else if(Vehicle == "fourwheeler"){
+                let Peramount = 500000;
+                var Interest = (Peramount * (Intrate * 0.01)) / Months;
+                var Total = ((Peramount / Months) + Interest).toFixed(2);
+                document.getElementById("vehicletotal").innerHTML = Total;
+            }
+            else if(Vehicle == "others"){
+                let Peramount = 700000;
+                var Interest = (Peramount * (Intrate * 0.01)) / Months;
+                var Total = ((Peramount / Months) + Interest).toFixed(2);
+                document.getElementById("vehicletotal").innerHTML = Total;
+            }
+            else{
+                alert("Please Select Any Option");
+            }
+        }
+
+        </script>
+
+</body>
+</html>

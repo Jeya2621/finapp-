@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login Page</title>
+    <style>
+        body {
+                    background-image: url(https://wallpaperaccess.com/full/1567838.jpg);
+                }
+    </style>
+</head>
+<body>
+    <center><h3><b><i>!!!...Admin Login Form...!!!</i></b></h3></center>
+    <br>
+    <form>
+        <center><label for = "username">Enter UserName :</label>
+        <input type = "text" name ="username" id = "username"  placeholder="UserName" required/>
+        <br><br>
+        <label for = "password">Enter Password :</label>
+        <input type = "password" name = "password" id = "password" placeholder="Password" required/>
+        <br><br>
+        <input type = "button" value = "Login" onclick = "loginCheck()"></center>
+    </form>
+
+<script>
+        function loginCheck(){
+            event.preventDefault();
+            let username = document.querySelector("#username").value;
+            if(username == "AdminOne" || username == "AdminTwo" || username == "AdminThree" || username == "AdminFour"){
+            let password = document.querySelector("#password").value;
+            if(password == "123456" && password.length >5){
+            alert("Successfully Logged In");
+            location.replace("adminPage.html");
+            }
+            else{
+            alert("Enter Correct Password");
+            location.reload("AdminLogin.html");
+            }
+            }
+            else{
+            alert("Invalid Username");
+            location.reload("AdminLogin.html");
+            }      
+        }
+        
+</script>
+
+
+</body>    
+</html>     

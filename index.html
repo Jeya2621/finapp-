@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" type="text/css" href="assets/home.css">
+  <link rel="stylesheet" type="text/css" href="assets/index.css">
+</head>
+
+<body>
+
+
+  <div class="header">
+    <a href="#default" class="logo">Financial Consultant</a>
+
+    <div class="header-right">
+      <a class="active" href="#home">Home</a>
+      <a href="views\DisplayLoans.html">Display Loans</a>
+      <a href="views\EmiCalculation.html">Calculate EMI for Loan</a>
+      <a href="views\ApplyLoan.html">Apply Loan</a>
+      <a href="views\Login.html">Customer Login</a>
+      <a href="views\AdminLogin.html">Admin Login</a>
+      <a href="views\Register.html">Register</a>
+    </div>
+  </div>
+
+  <div>
+    <b>
+      <i>
+        <h1>
+          <marquee behavior="scroll" direction="left">!!!.....WELCOME.....!!!</marquee>
+        </h1>
+      </i>
+    </b>
+    <center>
+      <h2>
+        <b>
+          <i>!!!.....ABC Financial Consultant.....!!!</i>
+        </b>
+      </h2>
+    </center>
+    <center>
+      <h4>
+        <b>No.17, 1st Street, Main Road, Madurai - 600004</b>
+      </h4>
+    </center>
+    <center>
+      <h4>
+        <b>Contact No. : 9999999999</b>
+      </h4>
+    </center>
+    <center>
+      <h4>
+        <b>E-mail Id : abcfinancialconsultant@gmail.com</b>
+      </h4>
+    </center>
+    <center>
+      <img src="images\Q.jpeg" alt="Quotes">
+    </center>
+  </div>
+
+
+
+  <button class="open-button" onclick="openForm()">Any Queries?</button>
+
+  <div class="chat-popup" id="myForm">
+    <form action="" class="form-container">
+      <h1>Chat</h1>
+
+      <label for="msg">
+        <b>Message</b>
+      </label>
+      <textarea placeholder="Type message.." name="msg" required></textarea>
+
+      <button type="submit" class="btn">Send</button>
+      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    </form>
+  </div>
+
+
+  <footer>
+    <p>For More Details
+      <br>
+      <a href="abcfinancialconsultant@gmail.com">abcfinancialconsultant@gmail.com</a>
+    </p>
+  </footer>
+
+  <script>
+    function openForm() {
+      document.getElementById("myForm").style.display = "block";
+    }
+
+    function closeForm() {
+      document.getElementById("myForm").style.display = "none";
+    }
+  </script>
+
+</body>
+
+</html>
